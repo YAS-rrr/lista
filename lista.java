@@ -9,7 +9,7 @@ public class lista{
           this.size = size;
           nodi = new nodo[size];
           head = null;
-          cursor = null;
+          cursor = head;
         }   
    
 
@@ -17,6 +17,14 @@ public class lista{
         if(nodi[indice] == null){
         nodi[indice] = n;
         n.next = nodi[indice + 1];
+        cursor = n;
+        if(nodi[indice - 1] != null){
+        nodi[indice-1].next = n;
+        }
+        else{
+            n = head;
+            cursor = head;
+        }
         }
      
          return 0;

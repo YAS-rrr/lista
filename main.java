@@ -3,13 +3,9 @@ public class main {
 
 
 
-        nodo n1 = new nodo();
-        n1.valore = "a";
-        nodo n2 = new nodo();
-        n2.valore = "b";
-        nodo n3 = new nodo();
-        n3.valore = "c";
-
+        nodo n1 = new nodo("a");
+        nodo n2 = new nodo("b");
+        nodo n3 = new nodo("c");
 
         lista lista1 = new lista(10);
         lista1.inserimento(n1, 0);
