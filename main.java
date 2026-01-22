@@ -7,7 +7,7 @@ public class main {
         nodo n2 = new nodo("b");
         nodo n3 = new nodo("c");
 
-        lista lista1 = new lista(10);
+        lista lista1 = new lista();
         lista1.inserimento(n1, 0);
         lista1.inserimento(n2, 1);
         lista1.inserimento(n3, 2);
