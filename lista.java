@@ -11,16 +11,31 @@ public class lista{
         }   
    
 
-    public int inserimento(nodo n, int indice){
-        cursor = head;
-        for(int i = 0; i < indice; i++){
-            cursor = cursor.next;
-        }
-        n.next = cursor.next;
-        cursor.next = n;
+  public int inserimento(nodo n, int indice) {
+
+    if (indice < 0 || indice > size) {
+        throw new IndexOutOfBoundsException();
+    }
+
+
+    if (indice == 0) {
+        n.next = head;
+        head = n;
         size++;
         return 0;
     }
+
+    cursor = head;
+
+    for (int i = 0; i < indice - 1; i++) {
+        cursor = cursor.next;
+    }
+
+    n.next = cursor.next;
+    cursor.next = n;
+    size++;
+    return 0;
+}
    
 
    public void eliminazione(int indice){
