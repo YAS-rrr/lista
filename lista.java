@@ -61,28 +61,21 @@ public class lista{
 
 
     public void eliminazionecompleta(String valore){
-     
-      cursor = head;
-    nodo precedente = null;
-    
-    while (cursor != null) {
-        if (cursor.valore.equals(valore)) {
-            if (precedente == null) {
-               
-                head = cursor.next;
-                cursor = head;  
-            } else {
-                
-                precedente.next = cursor.next;
-                cursor = cursor.next;  
-            }
+        while (head != null && head.valore.equals(valore)) {
+            head = head.next;
             size--;
-        } else {
-         
-            precedente = cursor;
-            cursor = cursor.next;
         }
-    }
+        cursor = head;
+        while (cursor != null && cursor.next != null) {
+            if (cursor.next.valore.equals(valore)) {
+                cursor.next = cursor.next.next;
+                size--;
+            } else {
+                cursor = cursor.next;
+            }
+        }
+     
+   
     }
 
 
