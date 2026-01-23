@@ -19,13 +19,13 @@ public class lista{
 
 
     if (indice == 0) {
-        n.next = head;
         head = n;
+        cursor = head;
         size++;
         return 0;
     }
 
-    cursor = head;
+   
 
     for (int i = 0; i < indice - 1; i++) {
         cursor = cursor.next;
