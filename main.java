@@ -31,8 +31,8 @@ public class main {
         l.eliminazionecompleta("secondo");
         System.out.println(l.lettura(0));
         System.out.println(l.lettura(1));
-        System.out.println(l.lettura(2));
         
+
         
         
              

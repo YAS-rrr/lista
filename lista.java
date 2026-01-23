@@ -17,7 +17,7 @@ public class lista{
         throw new IndexOutOfBoundsException();
     }
 
-        if (indice == 0) {
+        if (indice == 0 && head == null) {
         head = n;
         cursor = head;
         size++;
@@ -94,7 +94,7 @@ public class lista{
 
 
      
-    public int ricerca(String valore){
+    public int  ricerca(String valore){
         cursor = head;
         for(int i = 0; i < size; i++){
             if(cursor.getValore().equals(valore)){
