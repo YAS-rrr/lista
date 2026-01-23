@@ -1,8 +1,8 @@
 public class lista{
 
-    int size;
-    nodo head;
-    nodo cursor = head;
+    private int size;
+    private nodo head;
+    private nodo cursor = head;
 
         public lista(){
          this.size = 0 ;
@@ -28,10 +28,10 @@ public class lista{
 
     for (int i = 0; i < indice -1; i++) {
      
-        cursor = cursor.next;
+        cursor = cursor.getNext();
         }
-    n.next = cursor.next;
-    cursor.next = n;
+    n.setNext(cursor.getNext());
+    cursor.setNext(n);
     size++; 
 
     return 0;
@@ -42,9 +42,9 @@ public class lista{
    public void eliminazione(int indice){
         cursor = head;
         for(int i = 0; i < indice - 1; i++){
-            cursor = cursor.next;
+            cursor = cursor.getNext();
         }
-        cursor.next = cursor.next.next;
+        cursor.setNext(cursor.getNext().getNext());
         size--;
     }
 
@@ -52,7 +52,7 @@ public class lista{
    public String lettura (int indice){
        cursor = head;
        for(int i = 0; i < indice -1; i++){
-           cursor = cursor.next;
+           cursor = cursor.getNext();
        }
        
        return cursor.toString();
@@ -61,17 +61,17 @@ public class lista{
 
 
     public void eliminazionecompleta(String valore){
-        while (head != null && head.valore.equals(valore)) {
-            head = head.next;
+        while (head != null && head.getValore().equals(valore)) {
+            head = head.getNext();
             size--;
         }
         cursor = head;
-        while (cursor != null && cursor.next != null) {
-            if (cursor.next.valore.equals(valore)) {
-                cursor.next = cursor.next.next;
+        while (cursor != null && cursor.getNext() != null) {
+            if (cursor.getNext().getValore().equals(valore)) {
+                cursor.setNext(cursor.getNext().getNext());
                 size--;
             } else {
-                cursor = cursor.next;
+                cursor = cursor.getNext();
             }
         }
      
@@ -84,10 +84,10 @@ public class lista{
             head = n;
         } else {
             cursor = head;
-            while (cursor.next != null) {
-                cursor = cursor.next;
+            while (cursor.getNext() != null) {
+                cursor = cursor.getNext();
             }
-            cursor.next = n;
+            cursor.setNext(n);
         }
         size++;
    }
@@ -97,10 +97,10 @@ public class lista{
     public int ricerca(String valore){
         cursor = head;
         for(int i = 0; i < size; i++){
-            if(cursor.valore.equals(valore)){
+            if(cursor.getValore().equals(valore)){
                 return i;
             }
-            cursor = cursor.next;
+            cursor = cursor.getNext();
         }
         return -1;
       
@@ -113,8 +113,8 @@ public class lista{
         String result = "";
         cursor = head;
         while (cursor != null) {
-            result += cursor.valore + " ";
-            cursor = cursor.next;
+            result += cursor.getValore() + " ";
+            cursor = cursor.getNext();
         }
         return result.trim();
     }
