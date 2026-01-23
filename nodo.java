@@ -14,7 +14,7 @@ public nodo(String valore){
 
 @Override
 public String toString (){
-    return "il valore contenente è: " + valore + " e il suo prossimo nodo è: " + next.valore;
+    return "il valore contenente è: " + valore ; 
 }
 
 }

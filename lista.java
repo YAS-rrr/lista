@@ -17,24 +17,25 @@ public class lista{
         throw new IndexOutOfBoundsException();
     }
 
-
-    if (indice == 0) {
+        if (indice == 0) {
         head = n;
         cursor = head;
         size++;
         return 0;
     }
 
-   
+    cursor = head;
 
-    for (int i = 0; i < indice - 1; i++) {
+    for (int i = 0; i < indice -1; i++) {
+     
         cursor = cursor.next;
-    }
-
+        }
     n.next = cursor.next;
     cursor.next = n;
-    size++;
+    size++; 
+
     return 0;
+ 
 }
    
 
@@ -50,18 +51,38 @@ public class lista{
 
    public String lettura (int indice){
        cursor = head;
-       for(int i = 0; i < indice; i++){
+       for(int i = 0; i < indice -1; i++){
            cursor = cursor.next;
        }
-       return cursor.valore;
+       
+       return cursor.toString();
     }
 
 
 
-    public void eliminazionecompleta(nodo n){
-        head = null;
-        size = 0;
-        
+    public void eliminazionecompleta(String valore){
+     
+      cursor = head;
+    nodo precedente = null;
+    
+    while (cursor != null) {
+        if (cursor.valore.equals(valore)) {
+            if (precedente == null) {
+               
+                head = cursor.next;
+                cursor = head;  
+            } else {
+                
+                precedente.next = cursor.next;
+                cursor = cursor.next;  
+            }
+            size--;
+        } else {
+         
+            precedente = cursor;
+            cursor = cursor.next;
+        }
+    }
     }
 
 
@@ -106,3 +127,6 @@ public class lista{
     }
 
 }
+
+
+
