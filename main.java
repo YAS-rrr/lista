@@ -1,7 +1,7 @@
 public class main {
     public static void main(String[] args) {
-         nodo n1 = new nodo (10);
-         nodo n2 = new nodo (25);
+         nodo n1 = new nodo (5);
+         nodo n2 = new nodo (2);
          nodo n3 = new nodo (3);
          nodo n4 = new nodo (4);
        

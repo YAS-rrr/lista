@@ -51,11 +51,13 @@ public class lista{
 
    public String lettura(int indice){
         cursor = head;
-        for(int i = 0; i < indice; i++){
+        while (indice-- > 0 && cursor != null) {
             cursor = cursor.getNext();
         }
-        return cursor.toString();
-       
+        if (cursor != null) {
+            return cursor.toString();
+        }
+        return "Indice non valido";
     }
 
 
@@ -70,7 +72,7 @@ public class lista{
             }
             cursor = cursor.getNext();
         }
-        
+
     }
 
 
