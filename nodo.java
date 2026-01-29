@@ -1,6 +1,6 @@
 public class nodo {
 
-private String valore;
+private int valore;
 private nodo next;
 
     public nodo getNext() {
@@ -11,18 +11,18 @@ private nodo next;
         this.next = next;
     }
 
-    public String getValore() {
+    public int getValore() {
         return valore;
     }
 
-    public void setValore(String valore) {
+    public void setValore(int valore) {
         this.valore = valore;
     }
 
 
 
 
-public nodo(String valore){
+public nodo(int valore){
     this.valore = valore;
     this.next = null;
 }

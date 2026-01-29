@@ -49,33 +49,28 @@ public class lista{
     }
 
 
-   public String lettura (int indice){
-       cursor = head;
-       for(int i = 0; i < indice -1; i++){
-           cursor = cursor.getNext();
-       }
+   public String lettura(int indice){
+        cursor = head;
+        for(int i = 0; i < indice; i++){
+            cursor = cursor.getNext();
+        }
+        return cursor.toString();
        
-       return cursor.toString();
     }
 
 
 
-    public void eliminazionecompleta(String valore){
-        while (head != null && head.getValore().equals(valore)) {
-            head = head.getNext();
-            size--;
-        }
+    public void eliminazionediunvalore(int valore){
         cursor = head;
-        while (cursor != null && cursor.getNext() != null) {
-            if (cursor.getNext().getValore().equals(valore)) {
+        for(int i = 0; i < size; i++){
+            if(cursor.getNext().getValore() == valore){
                 cursor.setNext(cursor.getNext().getNext());
                 size--;
-            } else {
-                cursor = cursor.getNext();
+                return;
             }
+            cursor = cursor.getNext();
         }
-     
-   
+        
     }
 
 
@@ -94,10 +89,10 @@ public class lista{
 
 
      
-    public int  ricerca(String valore){
+    public int  ricerca(int valore){
         cursor = head;
         for(int i = 0; i < size; i++){
-            if(cursor.getValore().equals(valore)){
+            if(cursor.getValore() == valore){
                 return i;
             }
             cursor = cursor.getNext();
@@ -119,7 +114,24 @@ public class lista{
         return result.trim();
     }
 
+
+    public void inserimentoordinato (nodo n){
+        if (head == null || head.getValore() >= n.getValore()) {
+            head = n;
+        } else {
+            cursor = head;
+            while (cursor.getNext() != null && cursor.getNext().getValore() < n.getValore()) {
+                cursor = cursor.getNext();
+            }
+            n.setNext(cursor.getNext());
+            cursor.setNext(n);
+        }
+        size++;                 
+    }
+
 }
+  
+
 
 
 
