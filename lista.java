@@ -17,7 +17,7 @@ public class lista{
         throw new IndexOutOfBoundsException();
     }
 
-    if (indice == 0) {  // <-- semplifica così
+    if (indice == 0) { 
         n.setNext(head);
         head = n;
         size++;
