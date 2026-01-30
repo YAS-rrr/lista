@@ -4,18 +4,18 @@ public class main {
          nodo n2 = new nodo (2);
          nodo n3 = new nodo (3);
          nodo n4 = new nodo (4);
+         nodo n5 = new nodo (0);
+         nodo n22 = new nodo (2);
        
            lista l = new lista ();
         l.inserimentoordinato(n1);
         l.inserimentoordinato(n2);
         l.inserimentoordinato(n3);
         l.inserimentoordinato(n4);
+        l.inserimentoordinato(n5);
+        l.inserimentoordinato(n22);
        
-            System.out.println(l.lettura(0));
-            System.out.println(l.lettura(1));
-            System.out.println(l.lettura(2));
-            System.out.println(l.lettura(3));
-            
+        System.out.println(l.visita());
        
         /*  System.out.println(l.lettura(0));
             System.out.println(l.lettura(1));
@@ -34,8 +34,10 @@ public class main {
             System.out.println(l.lettura(2));
             System.out.println(l.lettura(3));
             System.out.println(l.lettura(4));
-            System.out.println("dopo eliminazione completa");
+           */ System.out.println("dopo eliminazione completa");
         l.eliminazionediunvalore(2);
+        System.out.println(l.visita());
+        /*
             System.out.println(l.lettura(0));
             System.out.println(l.lettura(1));
          nodo n0 = new nodo (0);

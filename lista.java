@@ -12,7 +12,7 @@ public class lista{
         }   
    
 
- public int inserimento(nodo n, int indice) {
+ public void inserimento(nodo n, int indice) {
     if (indice < 0 || indice > size) {
         throw new IndexOutOfBoundsException();
     }
@@ -21,7 +21,7 @@ public class lista{
         n.setNext(head);
         head = n;
         size++;
-        return 0;
+        
     }
 
     cursor = head;
@@ -31,7 +31,7 @@ public class lista{
     n.setNext(cursor.getNext());
     cursor.setNext(n);
     size++; 
-    return 0;
+    
 }
    
 
@@ -66,10 +66,9 @@ public class lista{
     public void eliminazionediunvalore(int valore){
         cursor = head;
         for(int i = 0; i < size; i++){
-            if(cursor.getNext().getValore() == valore){
+          while(cursor != null && cursor.getNext() != null && cursor.getNext().getValore() == valore){
                 cursor.setNext(cursor.getNext().getNext());
                 size--;
-                return;
             }
             cursor = cursor.getNext();
         }
@@ -132,6 +131,8 @@ public class lista{
         }
         size++;                 
     }
+
+   
 
 }
   
