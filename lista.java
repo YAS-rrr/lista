@@ -1,53 +1,54 @@
+
 public class lista{
 
     private int size;
     private nodo head;
-    private nodo cursor = head;
+    private nodo cursor;
 
         public lista(){
          this.size = 0 ;
          this.head = null;
-         this.cursor = head;
+         this.cursor = null;
         }   
    
 
-  public int inserimento(nodo n, int indice) {
-
+ public int inserimento(nodo n, int indice) {
     if (indice < 0 || indice > size) {
         throw new IndexOutOfBoundsException();
     }
 
-        if (indice == 0 && head == null) {
+    if (indice == 0) {  // <-- semplifica così
+        n.setNext(head);
         head = n;
-        cursor = head;
         size++;
         return 0;
     }
 
     cursor = head;
-
-    for (int i = 0; i < indice -1; i++) {
-     
+    for (int i = 0; i < indice - 1; i++) {
         cursor = cursor.getNext();
-        }
+    }
     n.setNext(cursor.getNext());
     cursor.setNext(n);
     size++; 
-
     return 0;
- 
 }
    
 
-   public void eliminazione(int indice){
-        cursor = head;
-        for(int i = 0; i < indice - 1; i++){
-            cursor = cursor.getNext();
-        }
-        cursor.setNext(cursor.getNext().getNext());
+ public void eliminazione(int indice){
+    if (indice == 0) { 
+        head = head.getNext();
         size--;
+        return;
     }
-
+    
+    cursor = head;
+    for(int i = 0; i < indice - 1; i++){
+        cursor = cursor.getNext();
+    }
+    cursor.setNext(cursor.getNext().getNext());
+    size--;
+}
 
    public String lettura(int indice){
         cursor = head;
@@ -119,6 +120,7 @@ public class lista{
 
     public void inserimentoordinato (nodo n){
         if (head == null || head.getValore() >= n.getValore()) {
+            n.setNext(head);
             head = n;
         } else {
             cursor = head;
